@@ -1,0 +1,36 @@
+<div>
+  <h2>Choose Category</h2>
+  <select [(ngModel)]="valueSelected">
+    <option value="kitchen">Kitchen</option>
+    <option value="homeDesign">Home Design</option>
+    <option value="garden" selected>Garden</option>
+  </select>
+  <button (click)="chooseCategory(valueSelected!)">Choose Category</button>
+  <button (click)="getAllProducts()">All Products</button>
+</div>
+<div>
+<h2>Products List</h2>
+<table style="border: 1px solid black;">
+  <thead>
+    <tr>
+      <td style="font-weight: bold;">Name</td>
+      <td style="font-weight: bold;">Category</td>
+      <td style="font-weight: bold;">Price</td>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of productsList">
+    <tr>
+      <td>{{item.name}}</td>
+      <td>{{item.category}}</td>
+      <td>{{item.price}}</td>
+      <td>
+        <button (click)="deleteProduct(item.id)">Delete</button>
+        <button [routerLink]='["/", "products", "edit", item.id]'>Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+

@@ -1,0 +1,32 @@
+<h2>Edit Product</h2>
+
+<form *ngIf="editProductForm" [formGroup]="editProductForm" (ngSubmit)="save()">
+  <div>
+    <div>
+      <div>
+        Name:
+      </div>
+      <div>
+        <input type="text" formControlName="name">
+      </div>
+    </div>
+    <div>
+      <div>
+        Category:
+      </div>
+      <div>
+        <input type="text" formControlName="category">
+      </div>
+    </div>
+    <div>
+      <div>
+        Price:
+      </div>
+      <div>
+        <input type="text" formControlName="price">
+      </div>
+    </div>
+    <button [disabled]="editProductForm.invalid" (submit)="save()">Save</button>
+  </div>
+
+</form>
